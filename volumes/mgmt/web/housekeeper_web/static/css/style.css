@@ -1,0 +1,207 @@
+/*
+* {
+    padding:0;
+    margin:0;
+}
+*/
+
+html{
+    /*height:100%; make sure it is at least as tall as the viewport */
+    position:relative;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444;
+/*  height: 100%;*/
+  width: 100%;
+  font: 12px/18px Arial, sans-serif;
+}
+/*
+ * Formatting the header area
+ */
+header {
+  background-color: #DFB887;
+  height: 35px;
+  width: 100%;
+  opacity: .9;
+  margin-bottom: 10px;
+}
+header h1.logo {
+  margin: 0;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  float: left;
+  padding-top: 8px;
+}
+header h1.logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+/*
+ * Centering the body content
+ */
+.header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto -45px auto;
+  padding: 10px 0 30px 0;
+  padding-bottom: 8px;
+  background-color: #DFB887;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+/*  min-height: 75%;*/
+  height: auto !important;
+  height: 100%;
+  overflow: auto;
+  border: none;
+  font: italic normal bold 16px/1 "Times New Roman", Times, serif;
+  color: rgba(165,87,87,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/*
+#content {
+    text-align: left;
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+*/
+
+/*
+div.home {
+  padding: 10px 0 30px 0;
+  background-color: #DFB887;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+div.about {
+  padding: 10px 0 30px 0;
+  background-color: #DFB887;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+*/
+
+p{
+    padding-top:15px;
+    font-size:16px;
+}
+
+h2 {
+  font-size: 3em;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: -2px;
+}
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #999;
+}
+.menu {
+  float: right;
+  margin-top: 8px;
+}
+.menu li {
+  display: inline;
+}
+.menu li + li {
+  margin-left: 35px;
+}
+.menu li a {
+  color: #444;
+  text-decoration: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/*
+.sidenav {
+    height: 50%;
+    width: 0;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+*/
+
+/*
+.sreSidenav span {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+*/
+/* Footer
+-----------------------------------------------------------------------------*/
+
+.footer {
+	width: 100%;
+	margin: 10px auto 0;
+	height: 100px;
+	background: #BFF08E;
+	position: absolute;
+    bottom: 0;
+}

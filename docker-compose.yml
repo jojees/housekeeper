@@ -1,0 +1,165 @@
+version: '2'
+
+services:
+
+  api:
+    build:
+      context: ./api
+    image: jojees/opslab:api
+    links:
+      - rabbitmq
+      - mgmt
+#      - web
+    volumes_from:
+      - storage
+    tty: true
+    hostname: api.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - api.opslab.local
+    ports:
+      - "5000:5000"
+
+  rabbitmq:
+    build:
+      context: ./rabbitmq
+    image: jojees/opslab:rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: shnops
+      RABBITMQ_DEFAULT_PASS: shnpass
+    volumes_from:
+      - storage
+    tty: true
+    hostname: rabbitmq.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - rabbitmq.opslab.local
+    expose:
+      - "5672"
+    ports:
+      - "15672:15672"
+                  
+  mgmt:
+    build:
+      context: ./mgmt
+    image: jojees/opslab:mgmt
+    links:
+      - rabbitmq
+      - web
+    volumes_from:
+      - storage
+    tty: true
+#    dns: 172.20.20.20
+#    dns_search: shn
+    hostname: mgmt1.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - mgmt1.opslab.local
+      
+  web:
+    build:
+      context: ./web
+    image: jojees/web
+    links:
+      - mysql
+    volumes_from:
+      - storage
+    tty: true
+    hostname: web1.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - web1.opslab.local
+#    expose:
+#      - "80"
+    ports:
+      - "5001:5001"
+
+#      
+#  redis:
+#    build:
+#      context: ./redis
+#    image: jojees/redis
+#    volumes_from:
+#      - storage
+#    tty: true
+#    hostname: redis.opslab.local
+#    networks:
+#      opslab:
+#        aliases:
+#          - redis.opslab.local
+#    expose:
+#      - "80"
+#      - "443"
+#      - "22"
+#
+#  mysql:
+#    build:
+#      context: ./mysql
+#    image: jojees/opslab:mysql
+#    volumes_from:
+#      - storage
+#    tty: true
+##    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ops_newpass
+#      MYSQL_DATABASE: poc
+#      MYSQL_USER: poc_user
+#      MYSQL_PASSWORD: poc_pass
+#    hostname: mysql1.opslab.local
+#    networks:
+#      opslab:
+#        aliases:
+#          - mysql1.opslab.local
+#    expose:
+#      - "3306"
+##    ports:
+##      - "3306:3306"
+
+  mysql:
+    build:
+      context: ./mysql
+    image: jojees/opslab:mysql
+    volumes_from:
+      - storage
+    volumes:
+      - db_data:/var/lib/mysql
+    tty: true
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ops_newpass
+      MYSQL_DATABASE: poc
+      MYSQL_USER: poc_user
+      MYSQL_PASSWORD: poc_pass
+    hostname: mysql1.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - mysql1.opslab.local
+    expose:
+      - "3306"
+#    ports:
+#      - "3306:3306"
+
+      
+  storage:
+    build: ./storage
+    image: jojees/storage
+    volumes:
+      - ./volumes/common:/opt/common
+      - ./volumes/mgmt:/opt/lab
+      - ./volumes/mysql:/var/lib/mysql
+    hostname: storage.opslab.local
+    networks:
+      opslab:
+        aliases:
+          - storage.opslab.local
+
+networks:
+    opslab:
+
+volumes:
+    db_data:

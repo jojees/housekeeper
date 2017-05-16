@@ -1,0 +1,29 @@
+Create PG Incident
+Micro Service Based Confluence API
+This API is made with Flask, Flasgger and Nameko.
+---
+tags:
+  - Pager Duty
+parameters:
+  - in: body
+    name: body
+    required: true
+    schema:
+      id: data
+      properties:
+        operation:
+          type: string
+          enum:
+            - sum
+            - mul
+            - sub
+            - div
+        email:
+          type: string
+        value:
+          type: integer
+        other:
+          type: integer
+responses:
+  200:
+    description: Please wait the calculation, you will receive an email with results

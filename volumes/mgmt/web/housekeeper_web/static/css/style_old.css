@@ -1,0 +1,75 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+html{
+    height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+    width: 100%;
+    font: 12px/18px Arial, sans-serif;
+}
+
+ul{
+    list-style:none;
+    display: inline-block;
+}
+
+ul li{
+    display: inline-block;
+    padding: 10px 20px;
+    cursor:pointer;
+    background-color:#eee;
+    color:#7B8585;
+    
+    transition:0.3s;
+}
+
+ul li:hover{
+    background-color:#beecea;
+}
+
+ul li.focused{
+    color:#fff;
+    background-color:#41c7c2;
+}
+
+p{
+    padding-top:15px;
+    font-size:12px;
+}
+
+.container {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: auto;
+/*  width: 100%;*/
+  margin: 0 auto;  
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  padding: auto;
+  overflow: auto;
+  border: none;
+  font: italic normal bold 16px/1 "Times New Roman", Times, serif;
+  color: rgba(165,87,87,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #e8e5e5;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	width: 100%;
+	margin: -100px auto 0;
+	height: 100px;
+/*	background: #BFF08E;*/
+	position: relative;
+}

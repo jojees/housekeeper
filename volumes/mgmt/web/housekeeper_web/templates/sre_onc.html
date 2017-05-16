@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="sre">
+ <h1>{{ title}}</h1>
+ <p>Retreives the list of the On-Call schedules.</p>
+</div>
+<table>
+    <tr>
+        <th>UID</th>
+        <th>Engineer</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Log</th>
+</tr>
+{% for entry in entries %}
+<tr>
+    <td>{{entry.uid}}</td>
+    <td>{{entry.attendee}}</td>
+    <td>{{entry.start}}</td>
+    <td>{{entry.end}}</td>
+    <td>Create | Update | View</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
