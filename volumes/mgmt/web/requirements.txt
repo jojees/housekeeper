@@ -6,7 +6,7 @@ Flask-MySQL==1.4.0
 html5lib==0.999
 icalendar==3.11.3
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 MarkupSafe==1.0
 PyMySQL==0.7.11
 python-dateutil==2.6.0
